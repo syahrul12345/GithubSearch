@@ -21,9 +21,7 @@ func main() {
 
 	//Create a new router
 	router := mux.NewRouter()
-
 	//API CALLS
-
 	//Get all repos of a user
 	router.HandleFunc("/api/v1/getUser", controller.GetUser).Methods("POST")
 	//Get the readme of one repo from one user
