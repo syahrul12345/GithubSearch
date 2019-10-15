@@ -2,7 +2,6 @@ package request
 
 import (
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
 	"net/http"
 	"server/models"
@@ -35,7 +34,6 @@ func GetRepos(Username string) map[string]interface{} {
 		return resp
 	}
 	//Body returns an Array
-
 	//Parse the response
 	repositories := &[]models.Repository{}
 	parsedErr := json.Unmarshal(body, &repositories)
@@ -52,7 +50,6 @@ func GetReadme(username string, repo string) map[string]interface{} {
 	// ReadmeAPI should have this appended: syahrul12345/Battlecards/master/README.md
 	resp := make(map[string]interface{})
 	readmeURL := readmeAPI + username + "/" + repo + "/" + "/master/README.md"
-	fmt.Println(readmeURL)
 	response, responseErr := http.Get(readmeURL)
 
 	//Handle if it's not a 200 first. The error handling for other endpoints is a failsafe
