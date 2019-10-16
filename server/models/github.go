@@ -16,3 +16,8 @@ type ReadmeRequestPayload struct {
 type Repository struct {
 	Name string
 }
+
+//User represents the user information
+type User struct {
+	PublicRepos int `"json:public_repos"`
+}

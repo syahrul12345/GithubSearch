@@ -32,18 +32,18 @@ export default {
 
     async beforeRouteEnter(to,from,next){
         const params = to.params.username
-        const post = await axios.post("http://localhost:8080/api/v1/getUser",{
+        const post = await axios.post("http://127.0.0.1:9999/api/v1/getUser",{
                     username:params
                 }).then((response) => {
                     //Valid response with all Repos, set it to the data object
-                    return response.data.repositories
+                    next(vm => {
+                        vm.repos = response.data.results
+                    })
                 }).catch((error) => {
-                    next('/error')
+                    console.log(error)
+                    // next('/error')
                 })
-        next(vm => {
-            console.log(post)
-            vm.repos = post
-        })
+        
     }
     
 };

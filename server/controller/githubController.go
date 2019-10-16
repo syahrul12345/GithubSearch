@@ -25,14 +25,13 @@ var GetUser = func(writer http.ResponseWriter, req *http.Request) {
 		return
 	}
 	resp := request.GetRepos(requestPayload.Username)
-
 	//The request module will have an error object if it was unable to fetch the data from github API
 	if resp["error"] != nil {
 		writer.WriteHeader(http.StatusInternalServerError)
 		utils.Respond(writer, utils.Message(false, "Failed to get userdata, it might not exist"))
 		return
 	}
-	utils.Respond(writer, request.GetRepos(requestPayload.Username))
+	utils.Respond(writer, resp)
 }
 
 //GetReadme is called to return one repository from the user
