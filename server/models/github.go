@@ -19,5 +19,5 @@ type Repository struct {
 
 //User represents the user information
 type User struct {
-	PublicRepos int `"json:public_repos"`
+	PublicRepos int64 `json:"public_repos"`
 }

@@ -34,7 +34,7 @@ export default {
   }),
   methods:{
     search() {
-      
+      this.$router.push({path:`/repos/${this.username}`})
     }
   }
 };
