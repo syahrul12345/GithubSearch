@@ -27,7 +27,7 @@ export default {
         }
     },
     async beforeRouteEnter(to,from,next) {
-        await axios.post("http://localhost:9999/api/v1/getRepo",{
+        await axios.post("/api/v1/getRepo",{
             username:to.params.username,
             repository:to.params.repository
         }).then((response) => {
